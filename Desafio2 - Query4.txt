@@ -1,0 +1,12 @@
+select 
+v.tipoViolencia as Tipo_de_Violencia,
+count(v.pessoa_id) as QtdePessoa
+
+FROM
+Pessoa as p 
+INNER JOIN RegistroViolencia as v on v.pessoa_id = p.id
+
+WHERE YEAR(v.dataRegistro) = '2023'
+AND MONTH(v.dataRegistro) = 'Janeiro'
+
+GROUP BY 1

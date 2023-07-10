@@ -1,0 +1,15 @@
+select 
+b.nomeBairro as bairro,
+COUNT(f.id) as QtdeFamilia,
+COUNT(p.id) as QtdePessoa,
+
+FROM
+Pessoa as p
+INNER JOIN ComposicaoFamiliar as cf on cf.pessoa_id = p.id
+INNER JOIN Familia as f ON f.composicaoFamiliar_id = cf.id
+INNER JOIN Endereco as e ON e.id = f.endereco_id
+INNER JOIN Logradouro as l on l.id = e.logradouro_id
+INNER JOIN Bairro as b on b.id = l.bairro_id
+
+group by 1
+

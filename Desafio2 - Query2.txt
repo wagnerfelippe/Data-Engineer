@@ -1,0 +1,16 @@
+select 
+CASE 
+  when (YEAR(v.DataRegistro) - p.dataNascimento) >= 0 and (YEAR(v.DataRegistro) - p.dataNascimento) <= 12 THEN 'Crianças'
+  when (YEAR(v.DataRegistro) - p.dataNascimento) >= 13 and (YEAR(v.DataRegistro) - p.dataNascimento) <= 17 THEN 'Adolescente'
+  when (YEAR(v.DataRegistro) - p.dataNascimento) >= 18 AND (YEAR(v.DataRegistro) - p.dataNascimento) <= 59 THEN 'Adultos'
+  when (YEAR(v.DataRegistro) - p.dataNascimento) >= 60 THEN 'Idosos'
+END as FaixaEtaria,
+count(v.pessoa_id) as QtdePessoa
+
+FROM
+Pessoa as p 
+inner join RegistroViolencia as v on v.pessoa_id = p.id
+
+where v.tipoViolencia = 'Violência Sexual' 
+
+group by 1

@@ -1,0 +1,16 @@
+select 
+p.nome as responsavel,
+p.CPF as CPF,
+b.nomeBairro as bairro,
+count(cf.id) as QtdeFamilia
+
+FROM
+Pessoa as p
+inner join ComposicaoFamiliar as cf on cf.pessoa_id = p.id
+inner JOIN Familia as f ON f.composicaoFamiliar_id = cf.id
+inner join Endereco as e ON e.id = f.endereco_id
+INNER JOIN Logradouro as l on l.id = e.logradouro_id
+INNER JOIN Bairro as b on b.id = l.bairro_id
+
+group by 1,2,3
+
