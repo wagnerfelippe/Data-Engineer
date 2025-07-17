@@ -5,3 +5,4 @@ AND FORMAT_TIMESTAMP("%Y-%m-%d", data_primeira_compra) between "2025-05-01" and 
 and de_origem not like "%espelho%"
 and de_origem like "%_eng%"
 and de_origem like "%_acne%"
+#TestedoCommit
