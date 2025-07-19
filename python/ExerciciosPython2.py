@@ -10,7 +10,7 @@ s = pd.Series(
 s2 = pd.Series(
     data=[200, 250, 100, 2, 150, 180],
     index=['Maizena','Farinha', 'Açucar', 'Ovos', 'Manteiga', 'Castanha'],
-    name='Quantidade',
+    name='Quantidade'
     #dtype=
 )
 
