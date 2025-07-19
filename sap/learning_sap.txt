@@ -1,5 +1,3 @@
-import 
-
 -> Worshop SAP HANA-S/4HANA  
   
     O que é a SAP e o ERP:
