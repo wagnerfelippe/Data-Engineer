@@ -10,3 +10,7 @@
 - Vendas (tmp_vendas.sql)<br>
 - Calendario (dim_calendario.sql)<br>
 
+
+O projeto está sendo construído com estas bases. Logo logo, vou subir com as atualizações necessárias...
+
+Próxima atualização: 29/07 às 08:30
