@@ -1,16 +1,16 @@
-# PROJETO 360
+# 360 PROJECT
 
-### Neste projeto, precisamos entender como os nossos dados estão ao longo do tempo, com dados de Sales Force Marketing Cloud, Vendas, Contas e contatos.
+### In this project, we need to understand how our data is over time, with data from Sales Force Marketing Cloud, Sales, Accounts and Contacts..
 
-# Bases Incluídas
+# Bases Included
 
-- Contatos (tmp_contatos.sql)<br>
-- Contas (tmp_contatos.sql)<br>
-- SFMC (tmp_sfmc.sql)<br>
-- Vendas (tmp_vendas.sql)<br>
-- Calendario (dim_calendario.sql)<br>
+- Contacts (tmp_contatos.sql)<br>
+- Accounts (tmp_contatos.sql)<br>
+- Sales Force Marketing Cloud (tmp_sfmc.sql)<br>
+- Sales (tmp_vendas.sql)<br>
+- Calendar (dim_calendario.sql)<br>
 
 
-O projeto está sendo construído com estas bases. Logo logo, vou subir com as atualizações necessárias...
+The project is being built on these foundations. Soon, I'll upload the necessary options. 
 
-Próxima atualização: 29/07 às 08:30
+Next Update: July 29th at 8:30 AM
