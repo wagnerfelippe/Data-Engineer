@@ -87,7 +87,7 @@ df['aprovado'] = df['nota'].apply(aprovado)
 df['dia_semana'] = df['data'].dt.weekday #Monday=0, Sunday=6
 
 
-print(df.tail(30))
+print(df)
 
 
 
