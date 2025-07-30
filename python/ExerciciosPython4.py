@@ -14,6 +14,10 @@ a geração de visualizações e relatórios
 #print((np.random.choice(sexo, amostra) == 'M').sum() ) # Validar os valores masculinos e depois somar quantos valores existem do sexo M.
 
 
+##########################################################################################
+#    SETUP ( CRIANDO TODA A ESTRUTURA DA BASE )
+##########################################################################################
+
 import seaborn as sns
 import pandas as pd
 import numpy as np
@@ -87,14 +91,23 @@ df['aprovado'] = df['nota'].apply(aprovado)
 df['dia_semana'] = df['data'].dt.weekday #Monday=0, Sunday=6
 
 
-#3.1 Tabela cruzada dos participantes de cada sexo por estado
-crosstable = pd.crosstab(df['estado'], df['sexo'], margins=True)
+
+##########################################################################################
+#    EXERCÍCIOS DE ACORDO COM A BASE DE DADOS CRIADA ACIMA
+##########################################################################################
+
+# ===============================================================================
+#        3.1 Tabela cruzada dos participantes de cada sexo por estado
+# ===============================================================================
+
+#crosstable = pd.crosstab(df['estado'], df['sexo'], margins=True)
 #print(crosstable)
 
+# =============================================================================================================================
+# 3.2 Criar um gráfico de pizza da quantidade de aprovados por sexo, e um de barras com a quantidade  de aprovados por estado
+# ==============================================================================================================================
 
-#3.2 Criar um gráfico de pizza da quantidade de aprovados por sexo, e um de barras com a quantidade
-# de aprovados por estado
-aprovados = df['aprovado'] ==  'Aprovado'
+#aprovados = df['aprovado'] ==  'Aprovado'
 #pizza = df.loc[aprovados, 'sexo'].value_counts().plot(kind='pie')
 #plt.figure(figsize=[8,10])
 #barra = df.loc[aprovados, 'estado'].value_counts(ascending=True).plot(kind='barh')
@@ -108,7 +121,10 @@ aprovados = df['aprovado'] ==  'Aprovado'
 #plt.title('Aprovados')
 #plt.ylabel('Sexo')
 
-#3.3 Gráfico de pontos de nota por idade, colorindo por sexo
+# =============================================================================================
+#              3.3 Gráfico de pontos de nota por idade, colorindo por sexo
+# =============================================================================================
+
 #sns.scatterplot(
 #    data = df[aprovados],
 #    x = 'idade',
@@ -116,8 +132,10 @@ aprovados = df['aprovado'] ==  'Aprovado'
 #    hue = 'sexo'
 #)
 
-
-#3.4 Gráfico de barras com a participação por dia da semana e por dia do mês
+# =============================================================================================
+#         3.4 Gráfico de barras com a participação por dia da semana e por dia do mês
+# =============================================================================================
+#
 #plt.figure(figsize=[8, 10])
 mapa = {
     0: 'Segunda',
@@ -136,15 +154,33 @@ mapa = {
 #plt.ylabel('Dia')
 #plt.show()
 
-#print(barra)
+# =============================================================================================
+#         3.4.1 Gráfico de barras com a participação por dia da semana e por dia do mês - nova versão
+# =============================================================================================
+#
+
+print(df)
 
 
 
+# =============================================================================================
+#                       3.5 Gráfico de pontos por nota por dia da semana
+# =============================================================================================  
 
-#3.5 Gráfico de pontos por nota por dia da semana
 
 
-df.groupby('dia_semana')['nota'].mean().rename(mapa).plot(kind='bar')
-plt.title('Média de notas por semana')
-plt.show()
+#df.groupby('dia_semana')['nota'].mean().rename(mapa).plot(kind='bar')
+#plt.title('Média de notas por semana')
+#plt.show()
 
+
+# ====================================================================================================
+#   4 Salvar um arquivo csv com as notas dos 100 melhores alunos ordernados da melhor para pior nota
+# ====================================================================================================
+
+# 1. Ordenando valores com o sort_values puxando o campo nota
+# 2. Pego as primeiras posições com o iloc
+# 3. Excluo as 2 últimas colunas pois não precisamos do aprovado e data_semana
+
+#caminho = 'W:/Engenharia de Dados/Specialization in Apache Airflow/Data-Engineer/Data-Engineer-1/python/'
+#df.sort_values('nota', ascending=False).iloc[:100, :-2].to_csv(caminho + 'convocados.csv', index=False)
