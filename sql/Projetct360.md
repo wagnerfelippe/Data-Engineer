@@ -13,4 +13,4 @@
 
 The project is being built on these foundations. Soon, I'll upload the necessary options. 
 
-Next Update: July 29th at 16:30 PM
+Next Update: August 01st at 16:30 PM
