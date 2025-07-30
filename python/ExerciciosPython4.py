@@ -137,15 +137,15 @@ df['dia_semana'] = df['data'].dt.weekday #Monday=0, Sunday=6
 # =============================================================================================
 #
 #plt.figure(figsize=[8, 10])
-mapa = {
-    0: 'Segunda',
-    1: 'Terça',
-    2: 'Quarta',
-    3: 'Quinta',
-    4: 'Sexta',
-    5: 'Sábado',
-    6: 'Domingo',
-}
+#mapa = {
+#    0: 'Segunda',
+#    1: 'Terça',
+#    2: 'Quarta',
+#    3: 'Quinta',
+#    4: 'Sexta',
+#    5: 'Sábado',
+#    6: 'Domingo',
+#}
 #df['dia_semana'].map(mapa).value_counts().plot(kind='bar')
 
 #df['data'].dt.day.value_counts().sort_index(ascending=True).plot(kind='barh')
@@ -159,7 +159,21 @@ mapa = {
 # =============================================================================================
 #
 
-print(df)
+#quantidade = df['data'].drop_duplicates().dt.weekday.value_counts()
+#soma = df['dia_semana'].value_counts()
+#media = soma/quantidade
+#
+#media.rename(mapa).plot(kind='bar')
+#plt.title('Média de participação das semanas')
+#plt.show()
+
+# =============================================================================================
+#         3.4.2 Nova coluna e outro gráfico utilizando stripplot
+# =============================================================================================
+
+#df['weekday'] = df['dia_semana'].map(mapa)
+#sns.stripplot(data=df, x='weekday', y='nota', edgecolor='green')
+#plt.show()
 
 
 
