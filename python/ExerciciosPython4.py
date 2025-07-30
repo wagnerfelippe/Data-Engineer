@@ -14,7 +14,7 @@ a geração de visualizações e relatórios
 #print((np.random.choice(sexo, amostra) == 'M').sum() ) # Validar os valores masculinos e depois somar quantos valores existem do sexo M.
 
 
-
+import seaborn as sns
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -83,11 +83,68 @@ aprovado = lambda x: 'Aprovado' if x >= 600 else 'Reprovado'
 #Aqui já crio a coluna no dataframe utilizando a função acima, através do campo da nota.
 df['aprovado'] = df['nota'].apply(aprovado)
 
-
+#Adicionando uma coluna chamada dia da semana a partir do campo data que já existe dentro do DataFrame.
 df['dia_semana'] = df['data'].dt.weekday #Monday=0, Sunday=6
 
 
-print(df)
+#3.1 Tabela cruzada dos participantes de cada sexo por estado
+crosstable = pd.crosstab(df['estado'], df['sexo'], margins=True)
+#print(crosstable)
 
 
+#3.2 Criar um gráfico de pizza da quantidade de aprovados por sexo, e um de barras com a quantidade
+# de aprovados por estado
+aprovados = df['aprovado'] ==  'Aprovado'
+#pizza = df.loc[aprovados, 'sexo'].value_counts().plot(kind='pie')
+#plt.figure(figsize=[8,10])
+#barra = df.loc[aprovados, 'estado'].value_counts(ascending=True).plot(kind='barh')
+
+# Configurações para o gráfico de barras
+#plt.title('Aprovados por Estado')
+#plt.xlabel('Quantidade')
+#plt.ylabel('Estado')
+
+# Configurações para o gráfico de pizza
+#plt.title('Aprovados')
+#plt.ylabel('Sexo')
+
+#3.3 Gráfico de pontos de nota por idade, colorindo por sexo
+#sns.scatterplot(
+#    data = df[aprovados],
+#    x = 'idade',
+#    y = 'nota',
+#    hue = 'sexo'
+#)
+
+
+#3.4 Gráfico de barras com a participação por dia da semana e por dia do mês
+#plt.figure(figsize=[8, 10])
+mapa = {
+    0: 'Segunda',
+    1: 'Terça',
+    2: 'Quarta',
+    3: 'Quinta',
+    4: 'Sexta',
+    5: 'Sábado',
+    6: 'Domingo',
+}
+#df['dia_semana'].map(mapa).value_counts().plot(kind='bar')
+
+#df['data'].dt.day.value_counts().sort_index(ascending=True).plot(kind='barh')
+#plt.title('Participação em Janeiro')
+#plt.xlabel('Alunos')
+#plt.ylabel('Dia')
+#plt.show()
+
+#print(barra)
+
+
+
+
+#3.5 Gráfico de pontos por nota por dia da semana
+
+
+df.groupby('dia_semana')['nota'].mean().rename(mapa).plot(kind='bar')
+plt.title('Média de notas por semana')
+plt.show()
 
