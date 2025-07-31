@@ -26,6 +26,10 @@ except requests.exceptions.RequestException as err:
 #print(response.text)            
 '''
 
+# ===========================================================================================
+# ===========   PARTE 1 DO PROGRAMA ============
+
+
 import pandas as pd
 import requests
 
@@ -69,3 +73,8 @@ df_sem_nulos.columns = [
 df_sem_nulos.to_csv(caminho + 'cleaned_covid19.csv', index=False)
 
 print('Programa feito e arquivo baixo no caminho: ' , caminho)
+
+
+
+# ===========================================================================================
+# ===========   PARTE 2 DO PROGRAMA ============
