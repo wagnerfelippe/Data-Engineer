@@ -47,11 +47,11 @@ resultado = 'select * from confirmados_obito limit 5'
 df = pd.read_sql(resultado, engine)
 
 #Gera a consulta das tabelas
-print("Tabelas existentes")
-for tabela in tabelas:
-    print(f"{tabela}")
+#print("Tabelas existentes")
+#for tabela in tabelas:
+#    print(f"{tabela}")
 
-    
+
 #print(df)
-#plt.show()
+plt.show()
 
