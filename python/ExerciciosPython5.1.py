@@ -1,3 +1,10 @@
+'''
+Nome: Wagner F.
+Data: 31/07
+Descrição: Novo código para o exercício do Covid. A API do exercício anterior não estava funcioando direto
+Desta forma pegamos uma outra API para consumir os dados necessários.
+'''
+
 import pandas as pd
 import requests
 
