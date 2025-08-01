@@ -18,21 +18,23 @@ df = pd.read_csv(caminho)
 #                .sort_values('total_resultados', ascending=False)[:10])
 
 #Coloco 2 columas e ordeno pelo o resultado total somente as 10 primeira linhas e faço a mesma coisa com os obitos
-confirmados = df[['uf','total_resultados']].sort_values('total_resultados', ascending=False)[:10]
-mortes = df[['uf','mortes']].sort_values('mortes', ascending=False)[:10]
+#Arquivo antigo
+#confirmados = df[['uf','total_resultados']].sort_values('total_resultados', ascending=False)[:10]
+confirmados = df[['pais','total_confirmados']].sort_values('total_confirmados', ascending=False)[:10]
+obitos = df[['pais','total_obitos']].sort_values('total_obitos', ascending=False)[:10]
 
 #Colocando no gráfico as informações
 confirmados[::-1].plot(
     kind='barh',
-    x='uf',
-    y='total_resultados',
+    x='pais',
+    y='total_confirmados',
     title='Estados com mais casos confirmados de COVID-19'
 )
 
-mortes[::-1].plot(
+obitos[::-1].plot(
     kind='barh',
-    x='uf',
-    y='mortes',
+    x='pais',
+    y='total_obitos',
     title='Estados com mais obitos de COVID-19',
     color='lightcoral'
 )

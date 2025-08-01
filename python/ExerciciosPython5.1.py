@@ -37,8 +37,10 @@ df_countries.columns = [
 
 df_countries.drop(columns=['atualização'], inplace=True)
 
-df_countries.to_csv(caminho + 'cleaned_covid19.csv', index=False)
-print('Programa feito e arquivo baixo no caminho: ' , caminho)
+#df_countries.to_csv(caminho + 'cleaned_covid19.csv', index=False)
+#print('Programa feito e arquivo baixo no caminho: ' , caminho)
+
+print(df_countries)
 
 
 
