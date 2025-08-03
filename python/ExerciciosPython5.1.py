@@ -43,4 +43,3 @@ df_countries.drop(columns=['atualização'], inplace=True)
 print(df_countries)
 
 
-
